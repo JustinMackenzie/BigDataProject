@@ -1,17 +1,16 @@
-# ASP.NET Core Cloudant Sample
+# Node.js Cloudant Sample
 
-This application demonstrates how to use the Bluemix Cloudant NoSQL DB Service in an ASP.NET Core application.
+This application demonstrates how to use the Bluemix Cloudant NoSQL DB service.  It helps users organize their favorite files. The UI talks to a RESTful Express CRUD backend API.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/aspnet-core-cloudant)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/nodejs-cloudant)
 
 ## Run the app locally
 
-1. Install ASP.NET Core and the Dotnet CLI by following the [Getting Started][] instructions
-+ Clone this app
-+ cd into the app directory and then `src/dotnetCloudantWebstarter`
-+ Copy the value for the VCAP_SERVICES envirionment variable from the application running in Bluemix and paste it in the vcap-local.json file
-+ Run `dotnet restore`
-+ Run `dotnet run`
-+ Access the running app in a browser at http://localhost:5000
+1. [Install Node.js][]
++ cd into this project's root directory
++ Copy the value for the VCAP_SERVICES envirionment variable from the application running in Bluemix and paste it in a `vcap-local.json` file
++ Run `npm install` to install the app's dependencies
++ Run `npm start` to start the app
++ Access the running app in a browser at <http://localhost:6001>
 
-[Getting Started]: http://docs.asp.net/en/latest/getting-started/index.html
+[Install Node.js]: https://nodejs.org/en/download/

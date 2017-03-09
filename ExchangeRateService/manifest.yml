@@ -3,8 +3,8 @@ applications:
   memory: 512M
   instances: 1
   domain: mybluemix.net
-  name: Exchange-Rate
-  host: Exchange-Rate
+  name: exchange-rate
+  host: exchange-rate
   disk_quota: 1024M
   services:
-  - Exchange-Rate-cloudantNoSQLDB
+  - exchange-rate-cloudantNoSQLDB
