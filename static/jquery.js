@@ -2,7 +2,20 @@
 $(document).ready(function() {
 	//GET
 	$("#query-button").on('click',function(){
-		time = $('#date').val();
+		/*var year = $('#year').val();
+		var month = $('#month').val();
+		var day = $('#day').val();
+		var hour = $('#hour').val();
+		var minute = $('#minute').val();
+		var second = $('#second').val();
+*/
+		var date = document.getElementById("date");
+		var time = document.getElementById("time");
+
+		var myDate = new Date(date, time); // Your timezone!
+		
+		var myEpoch = myDate.getTime()/1000.0;
+		//time = $('#date').val();
 		console.log(time);
 		 $.ajax({
 			 url:'/api/query',
@@ -30,3 +43,7 @@ $(document).ready(function() {
 		 })
 	})
 });
+
+var myDate = new Date("July 1, 1978 02:30:00"); // Your timezone!
+var myEpoch = myDate.getTime()/1000.0;
+document.write(myEpoch);
