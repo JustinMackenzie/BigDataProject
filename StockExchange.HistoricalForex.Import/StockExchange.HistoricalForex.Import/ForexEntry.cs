@@ -6,9 +6,9 @@ namespace StockExchange.HistoricalForex.Import
     {
         public float Low { get; set; }
         public float High { get; set; }
-        public DateTime Timestamp { get; set; }
+        public long Timestamp { get; set; }
 
-        public ForexEntry(DateTime timestamp, float low, float high)
+        public ForexEntry(long timestamp, float low, float high)
         {
             this.Timestamp = timestamp;
             this.Low = low;

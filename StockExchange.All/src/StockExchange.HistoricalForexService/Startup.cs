@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
-using CloudantDotNet.Services;
+using StockExchange.HistoricalForexService.Repositories;
 
 namespace CloudantDotNet
 {
@@ -56,15 +56,11 @@ namespace CloudantDotNet
                 host = Configuration["cloudantNoSQLDB:0:credentials:host"]
             };
             services.AddSingleton(typeof(CloudantDotNet.Models.Creds), creds);
-            services.AddTransient<ICloudantService, CloudantService>();
+            services.AddTransient<IForexEntryRepository, ForexEntryRepository>();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            // Populate test data in the database
-            var cloudantService = ((ICloudantService)app.ApplicationServices.GetService(typeof(ICloudantService)));
-            cloudantService.PopulateTestData().Wait();
-
             loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
