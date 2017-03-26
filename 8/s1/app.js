@@ -69,7 +69,7 @@ router.route('/query').get(function(req, result) {
 
 //server connect
 app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname + '/static/query.html'));
+   res.sendFile(path.join(__dirname + '/../index.html'));
 	
 });
 
