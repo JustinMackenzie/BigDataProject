@@ -72,7 +72,7 @@ namespace StockExchange.HistoricalForexService.Repositories
 
         private string BuildSelectorString(DateTime from, DateTime to)
         {
-            return "{\"selector\": {\"Timestamp\": {\"$gte\": " + from.Ticks + ", \"$lte\": " + to.Ticks + "}}, \"sort\": [\"Timestamp:number\"], \"limit\": 10000}";
+            return "{\"selector\": {\"Timestamp\": {\"$gt\": " + from.Ticks + ", \"$lt\": " + to.Ticks + "}}, \"sort\": [{\"Timestamp\": \"asc\"}]}";
         }
     }
 
