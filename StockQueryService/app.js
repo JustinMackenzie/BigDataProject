@@ -5,7 +5,7 @@ var Cloudant = require('cloudant');
 var me = "fa20b553-dc7f-463f-889e-eca6f99bc67f-bluemix";
 var password = "28813e1ff484a3c050d91738ba652c26b9bc8273de0569d0eacf315493c2f792";
 var cloudant = Cloudant({account:me, password:password});
-var stock = cloudant.db.use('stockdata');
+var stock = cloudant.db.use('stock');
 
 /*Cloudant({account:me, password:password}, function(err, Cloudant) {
   if (err) {
