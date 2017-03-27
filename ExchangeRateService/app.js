@@ -74,6 +74,11 @@ function updateData() {
   })
 }
 
+app.get('/', function (req, res) {
+   res.sendFile(path.join(__dirname + '/views/s2.html'));
+	
+});
+
 http.listen(app.get('port'), '0.0.0.0', function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
