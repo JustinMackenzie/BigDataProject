@@ -7,12 +7,13 @@
     <body style="background-color:#d0e0dd">
         <h1 align="center">Welcome to Stock Exchange</hr>
         <div class = 'container'>
-        <h2 id="byDay"> Please Enter the Day</h2>
+        <h2 id="byDay"> Please Enter the Day and Time</h2>
         <div class = "form-group">
                 <label>Date</label>
-                <input type = "text" id = "date" class = "form-control">
-                <hr/>
-				<button type="button" id="query-button">Query</button>
+                <!-- <input type = "text" id = "date" class = "form-control">-->
+                <input type="date" id = "date">
+                <input type="time" id="time" step="1">
+			    <button type="button" id="query-button">Query</button>
             </div></hr>
         <!--<h2 id="byMonth"> Please Enter the Month</h2>
         <div class = "form-group">
@@ -23,12 +24,30 @@
         <h2> Stocks Retrieved</h2>
         <div class = "row">
             <div id = "stocks"></div>
-        </div>
-        </div>
+            <table class="sortable" border="1" width="900" align="center">
+                <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>PRICE</th>
+                    <th>SIZE</th>
+                    <th>EXCHANGE</th>
+                </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+         </table>
+        </div>
+        </div>
+        <style>
+            table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+            content: " \25B4\25BE" 
+            }
+        </style>
+     <script src="sorttable.js"></script>
      <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-       <script type='text/javascript' src='jquery.js'></script>
+     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+     <script type='text/javascript' src='jquery.js'></script>
 </body>
 </html>

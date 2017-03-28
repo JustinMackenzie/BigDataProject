@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link rel="stylesheet" href="css/swipebox.css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+
+<script src="js/responsiveslides.min.js"></script>
+		<!-- swipe box js -->
+			<script src="js/jquery.swipebox.min.js"></script> 
+				<script type="text/javascript">
+					jQuery(function($) {
+						$(".swipebox").swipebox();
+					});
+			</script>
+		<!-- //swipe box js -->
+	<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+	<!-- start-smoth-scrolling -->
+
+</head>
+<body>
+<!--banner-->
+<div class="banner">
+	<div class="container">
+			<div class="header-nav">
+						<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header logo">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<h1>
+									<a class="navbar-brand link link--yaku" href="index.html"><span>S</span><span>E</span><span>R</span><span>V</span><span>I</span><span>C</span><span>E</span><span>S</span></a>
+								</h1>
+								
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+								<nav class="cl-effect-1">
+									<ul class="nav navbar-nav ">
+										<li><a class="hvr-overline-from-left button2 active scroll" href="index.html">Home</a></li>
+										<li><a class="hvr-overline-from-left button2 scroll" href="#about">About</a></li>
+					
+										<li><a class="hvr-overline-from-left button2 scroll" href="#services">Services</a></li>
+										<li><a class="hvr-overline-from-left button2 scroll" href="#work">Work</a></li>
+										<li><a class="hvr-overline-from-left button2 scroll" href="#portfolio">Portfolio</a></li>
+									</ul>
+								</nav>
+							</div><!-- /navbar-collapse -->
+						</nav>
+			</div>
+				<script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						 // Slideshow 4
+						$("#slider3").responsiveSlides({
+							auto: true,
+							pager: false,
+							nav: false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+						$('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+							$('.events').append("<li>after event fired.</li>");
+							}
+							});
+						});
+				</script>
+		<div  id="top" class="callbacks_container">
+			<ul class="rslides" id="slider3">
+				<li>
+					<div class="banner-info">
+						<h3>THE BEST SERVICES</h3>
+						<p>for the most ambitious investors</p>
+						<div class="clearfix"></div>
+						<div class="arrow text-center"><a class="scroll" href="#about"><img src="images/icon.png" alt=" " /></a></div>
+					</div>
+				</li>
+				<li>
+					<div class="banner-info">
+						<h3>THE FUTURE TREND</h3>
+						<p>for the most ambitious investors</p>
+						<div class="clearfix"></div>
+						<div class="arrow text-center"><a class="scroll" href="#about"><img src="images/icon.png" alt=" " /></a></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!--//banner-->
+<!-- about -->
+<div id="about" class="about all_pad text-center">
+	<div class="container">
+		<h3 class="title">ABOUT SERVICES</h3>
+	
+		<div class="col-md-4 abt-grid">
+			<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+				<a href="#" class="hi-icon icon1"></a>
+			</div>
+			<h4>SERVICE1</h4>
+			<p>This service will have a descriptive behavior. Data will be queried for either the stock value or the average stock value for the given day, time or year, corresponding to the company the client is interested in. </p>
+		</div>
+		
+		<div class="col-md-4 abt-grid yes_marg">
+			<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+				<a href="#" class="hi-icon icon2"></a>
+			</div>
+			<h4>SERVICE2</h4>
+			<p>The service will allow clients query the CAD-USD exchange rate of any time and the average exchange rate of a day, a month and a year through fixer.io Api.
+</p>
+		</div>
+<br/><br/>
+		<div class="col-md-4 abt-grid">
+			<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+				<a href="#" class="hi-icon icon3"></a>
+			</div>
+			<h4>SERVICE3</h4>
+			<p>This service will combine S1 and S2. The customers would be able to retrieve the stock value of a certain day, or the average of a certain month/year. The clients will be returned with the (already) exchanged value for the amount they had originally queried for. 
+</p>
+		</div>
+		<div class="col-md-4 abt-grid">
+			<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+				<a href="#" class="hi-icon icon3"></a>
+			</div>
+			<h4>SERVICE4</h4>
+			<p>This service will allow clients look up historical foreign exchange rates.
+</p>
+		</div>
+		
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //about -->
+
+<!-- philosophy -->
+<div class="philosophy all_pad text-center">
+	<div class="container">
+		<h3 class="title">OUR PHILOSOPHY IS</h3>
+		<p class="para">Make The Transaction Easier</p>
+	</div>
+</div>	
+<!-- //philosophy -->
+
+
+<!-- services -->
+<div id="services" class="services all_pad text-center">
+	<div class="container">
+		<h3 class="title">SERVICES</h3>
+
+		<div class="col-md-6 services-left">
+			<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+			<div class="head_ser"><h5>1</h5></div>
+			<p>service1</p>
+		</div>
+		<div class="col-md-6 services-right">
+			<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+			<div class="head_ser"><h5>2</h5></div>
+			<p> service2</p>
+		</div>
+		<div class="col-md-6 services-left mar-top">
+			<span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+			<div class="head_ser"><h5>3</h5></div>
+			<p> service3 </p>
+		</div>
+		<div class="col-md-6 services-right mar-top">
+			<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+			<div class="head_ser"><h5>4</h5></div>
+			<p>service4</p>
+		</div>
+		<div class="clearfix"></div>
+
+	</div>
+</div>
+<!-- //services -->
+<!-- work -->
+<div id="work" class="work all_pad text-center">
+	<div class="container">
+		<h3 class="title">WORK STEPS</h3>
+		<p class="para"></p>
+		<div class="col-md-8 where-right">
+			<div class="wel-left">
+				<div class="work-left">
+					<h4>01</h4>
+				</div>
+				<div class="work-right text-left">
+					<h5>PROJECT UNDERSTANDING</h5>
+					<p></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="wel-right ">
+				<div class="content-item item-image1">
+					<div class="overlay"></div>
+					  <div class="corner-overlay-content"></div>
+					  <div class="overlay-content">
+					  </div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="col-md-8 where-right no-marg">
+			<div class="wel-right2">
+				<div class="content-item item-image2">
+					<div class="overlay"></div>
+					  <div class="corner-overlay-content"></div>
+					  <div class="overlay-content">
+					  </div>
+				</div>
+			</div>
+			<div class="wel-left2">
+				<div class="work-left">
+					<h4>02</h4>
+				</div>
+				<div class="work-right text-left">
+					<h5>PLANNING & IMPLEMENT</h5>
+					<p></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //services -->
+<!-- portfolio -->
+<div id="portfolio" class="portfolio all_pad text-center">
+	<div class="container">
+		<h3 class="title">PORTFOLIO</h3>
+		<p class="para"></p>
+        <div class="filtr-container ">
+                <div class=" col-md-6 filtr-item baner-top" data-category="1, 5" data-sort="Busy streets">
+					<a href="../StockQueryService/static/query.html" target="_blank" >
+							<div class="gal-spin-effect vertical ">
+								<img src="images/g1.jpg" alt=" " />
+								<div class="gal-text-box">
+									<div class="info-gal-con">
+										<h4>Services</h4>
+										<span class="divider"></span>
+										<p>service1</p>
+										<span class="divider"></span>
+									</div>
+								</div>
+                            </div>
+					</a>
+					
+                </div>
+                <div class="col-md-6 filtr-item baner-top" data-category="2, 5" data-sort="Luminous night">
+					<a href="https://fx.now.sh/" target="_blank">
+							<div class="gal-spin-effect vertical ">
+								<img src="images/g2.jpg" alt=" " />
+								<div class="gal-text-box">
+									<div class="info-gal-con">
+										<h4>Services</h4>
+										<span class="divider"></span>
+										<p>Service2</p>
+										<span class="divider"></span>
+									</div>
+								</div>
+							</div>
+					</a>
+                </div>
+				<div class="col-md-4 filtr-item baner-top ban-mar" data-category="3, 4" data-sort="Industrial site">
+					<a href="images/g3.jpg" class="b-link-stripe b-animate-go  swipebox">
+							<div class="gal-spin-effect vertical ">
+								<img src="images/g3.jpg" alt=" " />
+								<div class="gal-text-box">
+									<div class="info-gal-con">
+										<h4>Services</h4>
+										<span class="divider"></span>
+										<p>Service3</p>
+										<span class="divider"></span>
+									</div>
+								</div>
+							</div>
+					</a>
+                </div>
+                <div class="col-md-4 filtr-item baner-top ban-mar" data-category="2, 4" data-sort="Peaceful lake">
+					<a href="images/g4.jpg" class="b-link-stripe b-animate-go  swipebox">
+							<div class="gal-spin-effect vertical ">
+								<img src="images/g4.jpg" alt=" " />
+								<div class="gal-text-box">
+									<div class="info-gal-con">
+										<h4>Services</h4>
+										<span class="divider"></span>
+										<p>Service4</p>
+										<span class="divider"></span>
+									</div>
+								</div>
+							</div>
+					</a>
+                </div>
+                <div class="col-md-4  filtr-item baner-top ban-mar" data-category="1, 5" data-sort="City lights">
+                    <a href="images/g5.jpg" class="b-link-stripe b-animate-go  swipebox">
+							<div class="gal-spin-effect vertical ">
+								<img src="images/g5.jpg" alt=" " />
+								<div class="gal-text-box">
+									<div class="info-gal-con">
+										<h4>Services</h4>
+										<span class="divider"></span>
+										<p>Service</p>
+										<span class="divider"></span>
+									</div>
+								</div>
+							</div>
+					</a>
+                </div>
+               
+               <div class="clearfix"> </div>
+           
+		</div> 
+	</div>
+</div>
+<!-- //portfolio -->
+
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<form action="#" method="post">
+
+
+			<div class="clearfix"></div>
+				
+		</form>
+		<p class="copy-rights">Copyright &copy; 2016.Company name All rights reserved.</p>
+
+	</div>
+</div>
+<!-- //footer -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<!-- smooth scrolling -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/								
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+
+</body>
+</html>
