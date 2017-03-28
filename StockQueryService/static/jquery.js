@@ -1,4 +1,4 @@
-/* gobal $ */
+/* global $ */
 $(document).ready(function() {
 	//GET
 	$("#query-button").on('click',function(){
@@ -9,12 +9,12 @@ $(document).ready(function() {
 		var minute = $('#minute').val();
 		var second = $('#second').val();
 */
-		var date = $('#date').val();
-		var time = $('#time').val();
+		var date = $('#date').val();
+		var time = $('#time').val();
 		console.log(date);
 		console.log(time);
 		var newDate = new Date(Date.parse(date));
-		dateReadable = newDate.toDateString() + " " + time.toString();// Your timezone!
+		var dateReadable = newDate.toDateString() + " " + time.toString();// Your timezone!
 		console.log(dateReadable);
 		var myDate = new Date(dateReadable); 
 		//dateReadable = myDate.toDateString() + time.toString();// Your timezone!
