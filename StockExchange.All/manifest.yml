@@ -1,6 +1,6 @@
 applications:
 - path: .
-  memory: 512M
+  memory: 256M
   instances: 1
   domain: mybluemix.net
   name: historical-forex-service
@@ -8,3 +8,12 @@ applications:
   disk_quota: 1024M
   services:
   - historical-forex-service-cloudantNoSQLDB
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: stock-forex-annotation-service
+  host: stock-forex-annotation-service
+  disk_quota: 1024M
+  services:
+  - stock-forex-annotation-service-cloudantNoSQLDB
