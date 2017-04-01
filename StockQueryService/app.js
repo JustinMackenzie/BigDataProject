@@ -6,6 +6,7 @@ var me = "fa20b553-dc7f-463f-889e-eca6f99bc67f-bluemix";
 var password = "28813e1ff484a3c050d91738ba652c26b9bc8273de0569d0eacf315493c2f792";
 var cloudant = Cloudant({account:me, password:password});
 var stock = cloudant.db.use('stockdata');
+var daily = cloudant.db.use('daily');
 
 /*Cloudant({account:me, password:password}, function(err, Cloudant) {
   if (err) {
@@ -37,7 +38,7 @@ var path = require('path');
 
 
 //get query index
-stock.index(function(er, result) {
+daily.index(function(er, result) {
   if (er) {
     throw er;
   }
@@ -67,6 +68,21 @@ router.route('/query').get(function(req, result) {
 })
 });
 
+router.route('/average').get(function(req, result) {
+  console.log(req.query.day);
+  daily.find({selector:{day:req.query.day}}, function(er, response) {
+    if (er) {
+      throw er;
+  }
+
+  console.log('Found %d documents with day', response.docs.length);
+  for (var i = 0; i < response.docs.length; i++) {
+    console.log('  Doc id: %s', response.docs[i]._id);
+  }
+     result.send (response.docs);
+})
+});
+
 //server connect
 app.get('/', function (req, res) {
    res.sendFile(path.join(__dirname + '/static/query.html'));
@@ -76,6 +92,8 @@ app.get('/', function (req, res) {
 app.use('/api', router);
 
 // start server on the specified port and binding host
-app.listen(8080); // start server
+app.listen(appEnv.port, appEnv.bind, function() {
 
-console.log('Listening on port 8080');
+	// print a message when the server starts listening
+  console.log("server starting on " + appEnv.url);
+});
