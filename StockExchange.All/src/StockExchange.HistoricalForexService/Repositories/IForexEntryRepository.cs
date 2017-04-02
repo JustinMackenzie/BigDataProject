@@ -16,5 +16,14 @@ namespace StockExchange.HistoricalForexService.Repositories
         /// <param name="to">To.</param>
         /// <returns></returns>
         IEnumerable<ForexEntry> GetAllBetween(string exchangeCode, DateTime from, DateTime to);
+
+        /// <summary>
+        /// Gets all daily averages between.
+        /// </summary>
+        /// <param name="exchangeCode">The exchange code.</param>
+        /// <param name="from">From.</param>
+        /// <param name="to">To.</param>
+        /// <returns></returns>
+        IEnumerable<ForexEntry> GetAllDailyAveragesBetween(string exchangeCode, DateTime from, DateTime to);
     }
 }

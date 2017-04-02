@@ -14,6 +14,14 @@
                 <input type="date" id = "date">
                 <input type="time" id="time" step="1">
 			    <button type="button" id="query-button">Query</button>
+            </div></hr></hr>
+        <h2 id="avg"> Please Enter the Day to get Average</h2>
+        <div class = "form-group">
+                <label>Date</label>
+                <!-- <input type = "text" id = "date" class = "form-control">-->
+                <input type="date" id = "avgday">
+                
+			    <button type="button" id="avg-button">Query</button>
             </div></hr>
         <!--<h2 id="byMonth"> Please Enter the Month</h2>
         <div class = "form-group">
@@ -22,8 +30,6 @@
             </div></hr>   -->
         <hr />
         <h2> Stocks Retrieved</h2>
-        <div class = "row">
-            <div id = "stocks"></div>
             <table class="sortable" border="1" width="900" align="center">
                 <thead>
                 <tr>
@@ -33,7 +39,21 @@
                     <th>EXCHANGE</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="querytable">
+
+                </tbody>
+         </table>
+                 <h2> Daily Values</h2>
+            <table class="sortable" border="1" width="1100" align="center">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>TOTAL PRICE</th>
+                    <th>TOTAL SIZE</th>
+                    <th>AVERAGE PRICE</th>
+                </tr>
+                </thead>
+                <tbody id="dailytable" >
 
                 </tbody>
          </table>
