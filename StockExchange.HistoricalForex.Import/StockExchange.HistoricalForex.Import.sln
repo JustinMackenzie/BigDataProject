@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.HistoricalFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.HistoricalForex.ImportDailyAverage", "StockExchange.HistoricalForex.ImportDailyAverage\StockExchange.HistoricalForex.ImportDailyAverage.csproj", "{FBC7A2F5-1C5D-4CCD-B241-60B3A7B0046B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Annotation.Import", "StockExchange.Annotation.Import\StockExchange.Annotation.Import.csproj", "{26568AB9-0FBE-405F-8421-76EAE374746D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FBC7A2F5-1C5D-4CCD-B241-60B3A7B0046B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC7A2F5-1C5D-4CCD-B241-60B3A7B0046B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC7A2F5-1C5D-4CCD-B241-60B3A7B0046B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26568AB9-0FBE-405F-8421-76EAE374746D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26568AB9-0FBE-405F-8421-76EAE374746D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26568AB9-0FBE-405F-8421-76EAE374746D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26568AB9-0FBE-405F-8421-76EAE374746D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
