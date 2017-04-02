@@ -54,6 +54,26 @@ namespace StockExchange.HistoricalForexService.Repositories
             }
         }
 
+        public IEnumerable<ForexEntry> GetAllDailyAveragesBetween(string exchangeCode, DateTime @from, DateTime to)
+        {
+            using (var client = CloudantClient())
+            {
+                string selector = BuildSelectorString(from, to);
+                var response = client.PostAsync($"{exchangeCode}_daily_avg/_find", new StringContent(selector, Encoding.UTF8, "application/json")).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    CloudantQueryResponse cloundantResponse =
+                        JsonConvert.DeserializeObject<CloudantQueryResponse>(
+                            response.Content.ReadAsStringAsync().Result);
+                    return cloundantResponse.Documents.Select(d => d.ToForexEntry());
+                }
+
+                string msg = "Failure to GET. Status Code: " + response.StatusCode + ". Reason: " + response.ReasonPhrase;
+                throw new Exception(msg);
+            }
+        }
+
         private HttpClient CloudantClient()
         {
             if (cloudantCreds.username == null || cloudantCreds.password == null || cloudantCreds.host == null)

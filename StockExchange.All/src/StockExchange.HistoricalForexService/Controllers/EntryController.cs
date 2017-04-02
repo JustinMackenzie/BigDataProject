@@ -35,5 +35,15 @@ namespace StockExchange.HistoricalForexService.Controllers
 
             return this.repository.GetAllBetween(conv, fromDate, toDate);
         }
+
+        [HttpGet]
+        [Route("/api/dailyAverage")]
+        public IEnumerable<ForexEntry> GetDailyAverageEntries(string conv, string from, string to)
+        {
+            DateTime fromDate = DateTime.ParseExact(from, "yyyyMMdd", CultureInfo.InvariantCulture);
+            DateTime toDate = DateTime.ParseExact(to, "yyyyMMdd", CultureInfo.InvariantCulture);
+
+            return this.repository.GetAllDailyAveragesBetween(conv, fromDate, toDate);
+        }
     }
 }
