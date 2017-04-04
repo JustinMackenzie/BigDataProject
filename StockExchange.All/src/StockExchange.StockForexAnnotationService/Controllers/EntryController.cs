@@ -34,5 +34,15 @@ namespace StockExchange.StockForexAnnotationService.Controllers
 
             return this.repository.GetAllDailyAverageStockBetween(conv, fromDate, toDate);
         }
+
+        [HttpGet]
+        [Route("/api/dailyTotalPrice")]
+        public IEnumerable<TotalStockForexEntry> GetTotalStockForexEntries(string conv, string from, string to)
+        {
+            DateTime fromDate = DateTime.ParseExact(from, "yyyyMMdd", CultureInfo.InvariantCulture);
+            DateTime toDate = DateTime.ParseExact(to, "yyyyMMdd", CultureInfo.InvariantCulture);
+
+            return this.repository.GetAllTotalStockForexEntries(conv, fromDate, toDate);
+        }
     }
 }

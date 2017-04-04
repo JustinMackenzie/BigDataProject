@@ -7,5 +7,6 @@ namespace StockExchange.StockForexAnnotationService.Repositories
     public interface IStockForexRepository
     {
         IEnumerable<AverageStockForexEntry> GetAllDailyAverageStockBetween(string exchangeCode, DateTime fromDate, DateTime toDate);
+        IEnumerable<TotalStockForexEntry> GetAllTotalStockForexEntries(string exchangeCode, DateTime fromDate, DateTime toDate);
     }
 }

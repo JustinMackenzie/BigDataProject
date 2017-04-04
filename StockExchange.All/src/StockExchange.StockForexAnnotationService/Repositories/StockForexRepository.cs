@@ -45,6 +45,26 @@ namespace StockExchange.StockForexAnnotationService.Repositories
             }
         }
 
+        public IEnumerable<TotalStockForexEntry> GetAllTotalStockForexEntries(string exchangeCode, DateTime fromDate, DateTime toDate)
+        {
+            using (var client = CloudantClient())
+            {
+                string selector = BuildSelectorString(fromDate, toDate);
+                var response = client.PostAsync("stock_forex_daily/_find", new StringContent(selector, Encoding.UTF8, "application/json")).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    CloudantQueryResponse cloundantResponse =
+                        JsonConvert.DeserializeObject<CloudantQueryResponse>(
+                            response.Content.ReadAsStringAsync().Result);
+                    return cloundantResponse.Documents.Select(d => d.ToTotalStockForexEntry());
+                }
+
+                string msg = "Failure to GET. Status Code: " + response.StatusCode + ". Reason: " + response.ReasonPhrase;
+                throw new Exception(msg);
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ForexEntryRepository"/> class.
         /// </summary>
@@ -73,31 +93,6 @@ namespace StockExchange.StockForexAnnotationService.Repositories
         private string BuildSelectorString(DateTime from, DateTime to)
         {
             return "{\"selector\": {\"Timestamp\": {\"$gte\": " + from.Ticks + ", \"$lte\": " + to.Ticks + "}}, \"sort\": [{\"Timestamp\": \"asc\"}]}";
-        }
-    }
-
-    public class CloudantQueryResponse
-    {
-        [JsonProperty(PropertyName = "docs")]
-        public List<CloudantStockForexEntry> Documents { get; set; }
-    }
-
-    public class CloudantStockForexEntry
-    {
-        public float ForexLowAverage { get; set; }
-        public float ForexHighAverage { get; set; }
-        public long Average { get; set; }
-        public long Timestamp { get; set; }
-
-        public AverageStockForexEntry ToAverageStockForexEntry()
-        {
-            return new AverageStockForexEntry
-            {
-                AverageForexHigh = ForexHighAverage,
-                AverageForexLow = ForexLowAverage,
-                Timestamp = new DateTime(Timestamp),
-                AverageStockPrice = Average / 10000f
-            };
         }
     }
 }
