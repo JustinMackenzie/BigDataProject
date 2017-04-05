@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Stock Exchange</title>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="s4.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <body>
+        <div style="color:#FFFFFF">
+        <h1 align="center">Historical Stock Exchange</h1>
+        </div>
+        <div class = 'container'>
+            <div style="color:#FFFFFF">
+        <h2 id="byDay"> Please Enter the Day and Time</h2></div>
+        <div style="color:#FFFFFF">
+        <div class = "form-group">
+                <label>Date</label> </div>
+                <!-- <input type = "text" id = "date" class = "form-control">-->
+                <input type="date" id = "date">
+                <input type="time" id="time" step="1">
+                    </hr></hr></hr></hr>
+                <div style="color:#000000">
+                    
+			    <button type="button" id="query-button">Query</button>
+			    </div>
+            </div>
+  
+            </hr></hr>
+        <hr />
+        <div style="color:#FFFFFF">
+        <h2> Stocks Retrieved</h2>
+            <table class="sortable" border="1" width="900" align="center">
+                <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>PRICE</th>
+                    <th>SIZE</th>
+                    <th>EXCHANGE</th>
+                </tr>
+                </thead>
+                <tbody id="querytable">
+
+                </tbody>
+         </table>
+            
+        </div>
+
+      
+     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+     <script type='text/javascript' src='query.js'></script>
+</body>
+</html>
