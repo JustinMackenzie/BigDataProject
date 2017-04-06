@@ -9672,6 +9672,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNet.WebApi.Client >= 5.2.3",
+      "Microsoft.AspNetCore.Cors >= 1.0.1",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.1",
       "Microsoft.AspNetCore.Http.Abstractions >= 1.0.1",
       "Microsoft.AspNetCore.Mvc >= 1.0.2",
