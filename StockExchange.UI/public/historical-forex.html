@@ -25,6 +25,13 @@
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+        <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
@@ -207,7 +214,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel" data-bind="with: dailyAverageTable">
                   <div class="x_title">
-                    <h2>Daily Average Foreign Exchange</h2>
+                    <h2>Daily Average Foreign Exchange <small>USDCAD</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -244,7 +251,7 @@
                       <button data-bind="click: function(){ getDailyAverages(from(), to()); }"type="button" class="btn btn-success">Submit</button>                      
                     </fieldset>
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table table-striped table-bordered">
                         <thead>
                           <tr>
                             <th>Day</th>
@@ -252,7 +259,7 @@
                             <th>Average High</th>
                           </tr>
                         </thead>
-                        <tbody data-bind="foreach: { data: forexEntries, as: 'forex' }">
+                        <tbody data-bind="foreach: { data: pagedList, as: 'forex' }">
                           <tr>
                             <th data-bind="text: forex.timestamp" scope="row"></th>
                             <td data-bind="text: forex.low"></td>
@@ -260,6 +267,10 @@
                           </tr>
                         </tbody>
                       </table>
+                      <ul class="pager">
+                        <li data-bind="css: { disabled: pageIndex() === 0 }"><a href="#" data-bind="click: previousPage">Previous</a></li>
+                        <li data-bind="css: { disabled: pageIndex() === maxPageIndex() }"><a href="#" data-bind="click: nextPage">Next</a></li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -267,7 +278,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel" data-bind="with: dailyEntryTable">
                   <div class="x_title">
-                    <h2>Daily Exchange Rate Ticks</h2>
+                    <h2>Daily Exchange Rate Ticks <small>USDCAD</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -299,15 +310,15 @@
                       <button data-bind="click: function(){ getDailyEntries(day()); }"type="button" class="btn btn-success">Submit</button>                      
                     </fieldset>
                     <div class="table-responsive">
-                      <table class="table">
+                      <table id="dailyEntryTable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
-                            <th>Day</th>
+                            <th>Time</th>
                             <th>Low</th>
                             <th>High</th>
                           </tr>
                         </thead>
-                        <tbody data-bind="foreach: { data: forexEntries, as: 'forex' }">
+                        <tbody data-bind="foreach: { data: pagedList, as: 'forex' }">
                           <tr>
                             <th data-bind="text: forex.timestamp" scope="row"></th>
                             <td data-bind="text: forex.low"></td>
@@ -315,7 +326,54 @@
                           </tr>
                         </tbody>
                       </table>
+                      <ul class="pager">
+                        <li data-bind="css: { disabled: pageIndex() === 0 }"><a href="#" data-bind="click: previousPage">Previous</a></li>
+                        <li data-bind="css: { disabled: pageIndex() === maxPageIndex() }"><a href="#" data-bind="click: nextPage">Next</a></li>
+                      </ul>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel" data-bind="with: historicalAverageChart">
+                  <div class="x_title">
+                    <h2>Historical Forex Average <small>USDCAD</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <fieldset>
+                      <div class="control-group">
+                        <div class="controls">
+                          <div class="col-md-5 xdisplay_inputx form-group has-feedback">
+                            <input data-bind="value: from" type="text" class="form-control has-feedback-left" id="chartFrom" placeholder="Date From" aria-describedby="inputSuccess2Status3">
+                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                          </div>
+                          <div class="col-md-5 xdisplay_inputx form-group has-feedback">
+                            <input data-bind="value: to" type="text" class="form-control has-feedback-left" id="chartTo" placeholder="Date To" aria-describedby="inputSuccess2Status3">
+                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button data-bind="click: function(){ getDailyAverages(from(), to()); }"type="button" class="btn btn-success">Submit</button>                      
+                    </fieldset>
+                    <canvas id="historicalAverageLineChart"></canvas>
                   </div>
                 </div>
               </div>
@@ -343,6 +401,7 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="../js/moment/moment.min.js"></script>
     <!-- Chart.js -->
     <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- gauge.js -->
@@ -374,6 +433,7 @@
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
     <script>
       $('#from').daterangepicker({
 			  singleDatePicker: true,
@@ -386,9 +446,20 @@
 			  singleClasses: "picker_3"
 			}, function(start, end, label) {
 			  console.log(start.toISOString(), end.toISOString(), label);
+			});      
+      $('#chartFrom').daterangepicker({
+			  singleDatePicker: true,
+			  singleClasses: "picker_3"
+			}, function(start, end, label) {
+			  console.log(start.toISOString(), end.toISOString(), label);
 			});
+      $('#chartTo').daterangepicker({
+			  singleDatePicker: true,
+			  singleClasses: "picker_3"
+			}, function(start, end, label) {
+			  console.log(start.toISOString(), end.toISOString(), label);
+			});   
     </script>
-    <script src="../build/js/custom.min.js"></script>
     <script type="text/javascript" src="../scripts/util.js"></script>
     <script type="text/javascript" src="../scripts/historical-forex.js"></script>
   </body>
