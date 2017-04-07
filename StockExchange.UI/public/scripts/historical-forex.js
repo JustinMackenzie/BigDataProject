@@ -36,6 +36,34 @@ var HistoricalForex = function () {
         return dailyAverageTable;
     }());
 
+    self.dailyEntryTable = (function() {
+        var day = ko.observable('');
+        var forexEntries = ko.observableArray();
+
+        var getDailyEntries = function(day){
+            var onSuccess = function (response) {
+                response.forEach(function(entry){
+                    entry.timestamp = Date.parse(entry.timestamp).toString('HH:mm:ss')
+                });
+                self.dailyEntryTable.forexEntries(response);
+            };
+
+            var onError = function () {
+                alert('Could not load foreign exchange daily averages.');
+            };
+            var date = Date.parse(day);
+            var formattedFromDate = date.toString('yyyyMMdd 000000000');
+            var formattedToDate = date.addDays(1) .toString('yyyyMMdd 000000000');
+            xhrGet(historicalForexApi + '?conv=usdcad&from=' + formattedFromDate + '&to=' + formattedToDate, onSuccess, onError);
+        }
+
+        var dailyEntryTable = {};
+        dailyEntryTable.day = day;
+        dailyEntryTable.forexEntries = forexEntries;
+        dailyEntryTable.getDailyEntries = getDailyEntries;
+        return dailyEntryTable;
+    }());
+
     return self;
 };
 
